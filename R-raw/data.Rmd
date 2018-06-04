@@ -17,8 +17,7 @@ rm(list = ls(envir = globalenv(), all = T))
 Process you raw data here, like the following R chunk
 
 ```{r}
-sample_100 <- sample(100);
-devtools::use_data(sample_100, overwrite = T);
+geo <- lem4::read_summary('inst/extdata/gds_result.txt') # expression profiling by array, homo sapiens
 ```
 
 
