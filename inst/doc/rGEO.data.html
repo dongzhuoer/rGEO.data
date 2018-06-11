@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Zhuoer Dong" />
+
+<meta name="date" content="2018-06-12" />
+
+<title>Introduction to rGEO.data</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to rGEO.data</h1>
+<h4 class="author"><em>Zhuoer Dong</em></h4>
+<h4 class="date"><em>2018-06-12</em></h4>
+
+
+
+<p>This package include several data, and functions to create them.</p>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">rGEO.data<span class="op">::</span>dataset</a></code></pre></div>
+<pre><code># A tibble: 23,210 x 8
+  accession type    species  ftp    platform  data_type title description 
+  &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;       
+1 GDS6177   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Acut… Analysis of…
+2 GDS6100   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Micr… Analysis of…
+3 GDS6083   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Chro… Analysis of…
+4 GDS6082   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Send… Analysis of…
+5 GDS6063   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Infl… Analysis of…
+6 GDS6010   DataSet Homo sa… ftp:/… Platform… &quot;\tExpre… Infl… Analysis of…
+# ... with 2.32e+04 more rows</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">rGEO.data<span class="op">::</span>platform</a></code></pre></div>
+<pre><code># A tibble: 4,882 x 9
+  Accession Title        Technology   Taxonomy `Data Rows` `Samples Count`
+  &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;          
+1 GPL24205  Agilent-040… in situ oli… Homo sa… 30229       69             
+2 GPL21790  nCounter Ge… other        Homo sa… 107         36             
+3 GPL21791  nCounter GX… other        Homo sa… 213         36             
+4 GPL23345  Lewis-Sigle… spotted DNA… Homo sa… 44544       127            
+5 GPL23467  Agilent-082… in situ oli… Homo sa… 170419      0              
+6 GPL23570  Qiagen Huma… RT-PCR       Homo sa… 1920        4              
+# ... with 4,876 more rows, and 3 more variables: `Series Count` &lt;chr&gt;,
+#   Contact &lt;chr&gt;, `Release Date` &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">rGEO.data<span class="op">::</span>gpl_metas[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
+<pre><code>#&gt; $GPL21790
+#&gt; $GPL21790$info
+#&gt; # A tibble: 2 x 2
+#&gt;   name  description
+#&gt;   &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ID    &quot;&quot;         
+#&gt; 2 ORF   &quot;&quot;         
+#&gt; 
+#&gt; $GPL21790$sample
+#&gt; # A tibble: 20 x 2
+#&gt;   ID      ORF    
+#&gt;   &lt;chr&gt;   &lt;chr&gt;  
+#&gt; 1 ACTA2   ACTA2  
+#&gt; 2 ACTB    ACTB   
+#&gt; 3 AFP     AFP    
+#&gt; 4 B3GALT5 B3GALT5
+#&gt; 5 BMP2    BMP2   
+#&gt; 6 BMP4    BMP4   
+#&gt; # ... with 14 more rows
+#&gt; 
+#&gt; 
+#&gt; $GPL24205
+#&gt; $GPL24205$info
+#&gt; # A tibble: 10 x 2
+#&gt;   name           description                         
+#&gt;   &lt;chr&gt;          &lt;chr&gt;                               
+#&gt; 1 ID             Probe Name                          
+#&gt; 2 GB_ACC         GenBank or RefSeq accession number  
+#&gt; 3 GenbankID      GenBank or RefSeq accession number  
+#&gt; 4 GB_RANGE       RefSeq accession.version[start..end]
+#&gt; 5 Symbol         Symbol                              
+#&gt; 6 ENTREZ_GENE_ID Entrez Gene ID                      
+#&gt; # ... with 4 more rows
+#&gt; 
+#&gt; $GPL24205$sample
+#&gt; # A tibble: 20 x 10
+#&gt;   ID          GB_ACC  GenbankID GB_RANGE Symbol ENTREZ_GENE_ID Description
+#&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;      
+#&gt; 1 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; 2 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; 3 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; 4 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; 5 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; 6 EPI_ACTB_3… NM_001… &quot;&quot;        &quot;&quot;       &lt;NA&gt;   &quot;&quot;             &lt;NA&gt;       
+#&gt; # ... with 14 more rows, and 3 more variables: ControlType &lt;chr&gt;,
+#&gt; #   SEQUENCE &lt;chr&gt;, SPOT_ID &lt;chr&gt;</code></pre>
+</div>
+<div id="function" class="section level1">
+<h1>function</h1>
+<p>refer to <a href="../reference/index.html">here</a></p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

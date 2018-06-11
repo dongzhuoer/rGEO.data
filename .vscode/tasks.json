@@ -7,8 +7,7 @@
         "panel": "shared"
     },
     "type": "shell",
-    "tasks": [
-        {
+    "tasks": [{
             "label": "data",
             "command": "R -e \"rmarkdown::render('R-raw/data.Rmd')\"",
             "problemMatcher": []
@@ -16,6 +15,11 @@
         {
             "label": "vignettes",
             "command": "R -e \"rmarkdown::render('R-raw/vignettes.Rmd')\"",
+            "problemMatcher": []
+        },
+        {
+            "label": "pkgdown",
+            "command": "R -e 'pkgdown::build_site()'",
             "problemMatcher": []
         },
         {

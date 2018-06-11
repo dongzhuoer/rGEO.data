@@ -19,8 +19,6 @@ internet <- T;
 knitr::opts_chunk$set(collapse = T)
 ```
 
-`open-html R-raw/data.html`
-
 I use two kinds of cache in this document (three if you include `GPL-html/`).
 
 For `dataset`, I use knitr's cache mechanism. Fairly simple, you just need to add 
@@ -28,8 +26,12 @@ md5sum of input file to chunk options, kngtr will takes care of the rest for you
 
 But remember to use the data in another chunk, otherwise it won't run.
 
+`gds_result.txt`: in [GEO DataSets](https://www.ncbi.nlm.nih.gov/gds), query 
+    `("expression profiling by array"[DataSet Type]) AND "homo sapiens"[Organism]`. 
+    or click [here](https://www.ncbi.nlm.nih.gov/gds?term=(%22expression%20profiling%20by%20array%22%5BDataSet%20Type%5D)%20AND%20%22homo%20sapiens%22%5BOrganism%5D)
+
 ```{r make-dataset, cache=T, input_md5=tools::md5sum('inst/extdata/gds_result.txt')}
-dataset <- rGEO::read_summary('inst/extdata/gds_result.txt') %T>% print 
+dataset <- rGEO.data::read_summary('inst/extdata/gds_result.txt') %T>% print 
 ```
 
 ```{r use-dataset}
@@ -91,7 +93,7 @@ gpl_html_files <-
 
 if (length(to_process) > 0) {
     new <- paste0(GPL_html_dir, '/', to_process, '.html') %>% 
-        parallel::mclapply(rGEO::read_gpl_html) %T>% {names(.) <- to_process}
+        parallel::mclapply(rGEO.data::read_gpl_html) %T>% {names(.) <- to_process}
     
     gpl_metas <- c(new, cache) %T>% readr::write_rds('data-raw/rds/gpl_metas.rds.gz', 'gz')
 } else {
@@ -110,6 +112,8 @@ devtools::document() # you may also have edited data documentation
 system('R CMD INSTALL --no-multiarch --with-keep.source .')
 devtools::reload()   # now you can use the new data in current R session 
 ```
+
+
 
 
 

@@ -1,0 +1,5 @@
+url: https://dongzhuoer.github.io/rGEO.data
+
+template:
+  package: zhuoertemplate
+  default_assets: false
