@@ -1,7 +1,7 @@
 
 #' @title read GEO datasets summary .txt file
 #' 
-#' @description for how to get the input file, search `gds_result.txt` in [here](https://github.com/dongzhuoer/rGEO.data/blob/master/R-raw/data.Rmd)
+#' @description refer to [here](https://github.com/dongzhuoer/rGEO.data/blob/master/R-raw/data.Rmd#dataset) for how to get the input file
 #' 
 #' @param path string. path to the summary .txt file
 #' 
@@ -61,6 +61,7 @@ read_summary <- function(path) {
 #' read_gpl_html(system.file('extdata/GPL10400.html', package = 'rGEO.data'))
 #' 
 #' \dontrun{
+#'     # feel free to run it, I don't do so to avoid accessing the Internet
 #'     read_gpl_html('https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL16570')
 #' }
 
@@ -85,5 +86,4 @@ read_gpl_html <- function(webpage) {
 	}
 
 	list(info = info, sample = sample)
-	# to do: parse `meta` information
 }

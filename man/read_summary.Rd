@@ -23,7 +23,7 @@ tibble
 }
 }
 \description{
-for how to get the input file, search \code{gds_result.txt} in \href{https://github.com/dongzhuoer/rGEO.data/blob/master/R-raw/data.Rmd}{here}
+refer to \href{https://github.com/dongzhuoer/rGEO.data/blob/master/R-raw/data.Rmd#dataset}{here} for how to get the input file
 }
 \examples{
 read_summary(system.file('extdata/gds_result-cut.txt', package = 'rGEO.data'))

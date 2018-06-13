@@ -5,28 +5,19 @@
 
 ## Overview
 
-This package include several data, and functions to create them. It serves as a 
-    data package for rGEO.
+This package contains several big data and functions to create them from GEO 
+    (Gene Expression Omnibus). They are meta data of GPL and GSE database, and 
+    of all platforms.  It's used in the testing of [rGEO](https://github.com/dongzhuoer/rGEO).
 
 
 
-## Install
+## Installation
 
 ```r
 if (!('devtools' %in% .packages(T))) install.packages('devtools');
 devtools::install_github('dongzhuoer/rGEO.data');
 ```
 
+## Usage
 
-
-## develop
-
-1. Refer to this [post](https://dongzhuoer.github.io/_redirects/develop-upon-my-r-package.html)
-
-
-
-## to do
-
-1. for `data-raw/GPL-html`, render individual .html to .rds, and use them as cache. Hope read 5000+ .rds and combind them can run quite fast.
-1. for read_gpl_html(): when info is `NULL`, shouldn't read sample table (in this case you will read supplementary file table)
-
+refer to `vignette('rGEO.data')`.

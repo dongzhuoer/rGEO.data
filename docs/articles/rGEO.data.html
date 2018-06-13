@@ -9,7 +9,10 @@
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="../tidyverse.css" rel="stylesheet">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- tidyverse --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- docsearch --><script src="../docsearch.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><link href="../zhuoer.css" rel="stylesheet">
+<!-- mathjax --><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -31,7 +34,7 @@
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
@@ -47,14 +50,23 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        <li>
+        </ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
   <a href="https://github.com/dongzhuoer/rGEO.data">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
-      </ul>
+        </ul>
+<form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
 </div>
+        </form>
+        
+      
+    </div>
 <!--/.nav-collapse -->
   </div>
 <!--/.container -->
@@ -68,7 +80,7 @@
       <h1>Introduction to rGEO.data</h1>
                         <h4 class="author">Zhuoer Dong</h4>
             
-            <h4 class="date">2018-06-12</h4>
+            <h4 class="date">2018-07-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/dongzhuoer/rGEO.data/blob/master/vignettes/rGEO.data.Rmd"><code>vignettes/rGEO.data.Rmd</code></a></small>
       <div class="hidden name"><code>rGEO.data.Rmd</code></div>
@@ -154,8 +166,8 @@
 </div>
 <div id="function" class="section level1">
 <h1 class="hasAnchor">
-<a href="#function" class="anchor"></a>function</h1>
-<p>refer to <a href="../reference/index.html">here</a></p>
+<a href="#function" class="anchor"></a>Function</h1>
+<p>see <a href="../reference/index.html">function reference</a></p>
 </div>
   </div>
 
@@ -165,7 +177,7 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#data">Data</a></li>
-      <li><a href="#function">function</a></li>
+      <li><a href="#function">Function</a></li>
       </ul>
 </div>
       </div>
@@ -192,6 +204,20 @@
 </div>
 
   
-
-  </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script>
+  docsearch({
+    
+    
+    apiKey: '7dce461917ca2b35046ab86f8d3e3db1',
+    indexName: 'rgeo_data',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+</body>
 </html>

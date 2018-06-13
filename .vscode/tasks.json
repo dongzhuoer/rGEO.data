@@ -2,12 +2,12 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
-    "presentation": {
-        "reveal": "silent",
-        "panel": "shared"
-    },
     "type": "shell",
-    "tasks": [{
+    "presentation": {
+        "reveal": "silent"
+    },
+    "tasks": [
+        {
             "label": "data",
             "command": "R -e \"rmarkdown::render('R-raw/data.Rmd')\"",
             "problemMatcher": []
@@ -18,14 +18,17 @@
             "problemMatcher": []
         },
         {
-            "label": "pkgdown",
-            "command": "R -e 'pkgdown::build_site()'",
-            "problemMatcher": []
-        },
-        {
             "label": "document",
             "command": "R --slave -e 'devtools::document()'",
             "problemMatcher": []
+        },
+        {
+            "label": "pkgdown",
+            "command": "R -e 'pkgdown::build_site()'",
+            "problemMatcher": [],
+            "dependsOn": [
+                "document"
+            ]
         },
         {
             "label": "test",

@@ -3,3 +3,7 @@ url: https://dongzhuoer.github.io/rGEO.data
 template:
   package: zhuoertemplate
   default_assets: false
+  params:
+    docsearch:
+      api_key: 7dce461917ca2b35046ab86f8d3e3db1
+      index_name: rgeo_data

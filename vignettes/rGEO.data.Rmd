@@ -41,6 +41,6 @@ tibble::trunc_mat(rGEO.data::platform)
 rGEO.data::gpl_metas[1:2]
 ```
 
-# function
+# Function
 
-refer to [here](../reference/index.html)
+see [function reference](../reference/index.html)

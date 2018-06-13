@@ -16,11 +16,15 @@ list
 \item sample: tibble, part of the platform table
 }
 }
+\description{
+read GPL information webpage
+}
 \examples{
 read_gpl_html(system.file('extdata/GPL98.html', package = 'rGEO.data'))
 read_gpl_html(system.file('extdata/GPL10400.html', package = 'rGEO.data'))
 
 \dontrun{
+    # feel free to run it, I don't do so to avoid accessing the Internet
     read_gpl_html('https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL16570')
 }
 }
