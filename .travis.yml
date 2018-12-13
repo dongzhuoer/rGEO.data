@@ -1,35 +1,31 @@
-language: r
-matrix:
-  include:
-    - r: release
-    - language: generic
-      services: docker
-    - os: osx
-    - r: oldrel
-cache: packages
+dist: xenial
+language: generic
+services: docker
+cache: 
+  directories: $HOME/.local/lib/R/
+env:
+  global:
+    - system_dep=""
+  matrix:
+    - job=build  
+    - job=test
 git:
   depth: false
 
 before_install:
-  # leave the interface for the future support of docker build
-  - if [ "$TRAVIS_R_VERSION" == "" ]; then
-        docker run -d -t --name devtools0 -v "$PWD":/home/docker/travis -w /home/docker/travis -u docker r-base;
-        shopt -s expand_aliases; alias R='docker exec devtools0 R';
-        R --version; alias R='echo'; 
-    fi;    
-  # combined with a weekly cron job, package cache would be updated quarterly (first week of first month of each quarter)
-  - if [ "$TRAVIS_EVENT_TYPE" == "cron" ]; then 
-        R --slave -e "date <- Sys.Date(); day <- as.integer(substr(date, 9, 10)); month <- as.integer(substr(date, 6, 7)); clean <- month %% 3L == 1L && day <= 7L; if (clean) unlink(dir(.libPaths()[1], full.names = T), recursive = T)"; 
-    fi;
-install:
-  - R --slave -e "update.packages(.libPaths()[1], ask = F)";
-  - R --slave -e "if (!('devtools' %in% .packages(T))) install.packages('devtools')";
+  - if [ "$job" == "build" ]; then export tag=remotes; else export tag=deverse; fi;
+install: 
+  - docker run -dt -u `id -u`:`id -g` -v $TRAVIS_BUILD_DIR:$HOME/$TRAVIS_REPO_SLUG -w $HOME/$TRAVIS_REPO_SLUG -v $HOME/.local/lib/R:$HOME/.local/lib/R -e CI=true --name rlang0 dongzhuoer/rlang:$tag 2> /dev/null
+  # add user & group (assuming the image contains no user)
+  - docker exec -u root rlang0 groupadd `id -gn` -g `id -g`
+  - docker exec -u root rlang0 useradd $USER -u `id -u` -g `id -g`
+  # install system dependency
+  - docker exec -u root rlang0 bash -c "apt update && apt -y install $system_dep"
 script:
-  - R --slave -e "devtools::install_local(getwd())";
-  - ls tests/testthat/*.R || travis_terminate 0;   # devtools::test() requires `tests/testthat` directory, but testthat::test_dir() dictate there must be a R script   
-  - R --slave -e "devtools::update_packages(c('testthat', 'roxygen2')); devtools::install_github('dongzhuoer/libzhuoer')";
-  # devtools::test() loads all and report result, testthat::test_dir() exit no-zero when a test fails  
-  - R --slave -e "devtools::test(); testthat::test_dir('tests/testthat/', reporter = 'fail')";
+  - if [ "$job" == "build" ]; then docker exec rlang0 R --slave -e "Sys.setenv('GITHUB_PAT' = '$GITHUB_PAT'); remotes::install_local(force = TRUE, upgrade = TRUE)"; fi;
+  
+  - if [ "$job" == "test" ];  then docker exec rlang0 R --slave -e "Sys.setenv('GITHUB_PAT' = '$GITHUB_PAT');  remotes::install_deps(force = TRUE, upgrade = TRUE, dependencies = TRUE)"; fi;
+  - if [ "$job" == "test" ];  then docker exec rlang0 R --slave -e "pkgload::load_all(); testthat::test_dir('tests/testthat/'); testthat::test_dir('tests/testthat/', reporter = 'fail')"; fi; # default reports summary result, fail exit no-zero when a test fails
 
 notifications:
   email: false

@@ -2,6 +2,8 @@
 title: processing raw data to package data
 ---
 
+# preparation
+
 ```{r include=FALSE}
 assertthat::assert_that(
     knitr::current_input() %>% paste0('R-raw/', .) %>% file.exists(),
@@ -14,6 +16,8 @@ dir('data', full.names = T) %>% file.remove()
 rm(list = ls(envir = globalenv(), all = T))
 ```
 
+# Process raw data
+
 ```{r setup, include=FALSE}
 internet <- T;
 knitr::opts_chunk$set(collapse = T)
@@ -21,7 +25,7 @@ knitr::opts_chunk$set(collapse = T)
 
 I use two kinds of cache in this document (three if you include `GPL-html/`).
 
-# dataset
+## dataset
 
 For `dataset`, I use knitr's cache mechanism. Fairly simple, you just need to add 
 md5sum of input file to chunk options, knitr will takes care of the rest for you.  
@@ -41,7 +45,7 @@ dataset <- rGEO.data::read_summary('inst/extdata/gds_result.txt') %T>% print
 devtools::use_data(dataset, overwrite = T)
 ```
 
-# platform
+## platform
 
 download `.tsv` files of Platform and Series, click `Homo sapiens` in https://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms
 
@@ -65,7 +69,7 @@ platform <- dir('data-raw/geo-tsv', 'platform', full.names = T) %>%
 devtools::use_data(platform, overwrite = T)
 ```
 
-# gpl_metas
+## gpl_metas
 
 ```{r download-GPL-html}
 GPL_html_dir <- 'data-raw/GPL-html';
@@ -109,10 +113,12 @@ devtools::use_data(gpl_metas, overwrite = T)
 
 
 
+# Afterward
 
 ```{r reinstall}
-devtools::test()
-devtools::document() # you may also have edited data documentation
+devtools::test()     # test the new data
+roxygen2::roxygenize() # you may also have edited data documentation
+
 system('R CMD INSTALL --no-multiarch --with-keep.source .')
 devtools::reload()   # now you can use the new data in current R session 
 ```

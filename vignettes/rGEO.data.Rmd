@@ -2,7 +2,7 @@
 title: "Introduction to rGEO.data"
 author: "Zhuoer Dong"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: prettydoc::html_pretty
 vignette: >
   %\VignetteIndexEntry{Introduction to rGEO.data}
   %\VignetteEngine{knitr::rmarkdown}
@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(comment = '#>')
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 
 options(tibble.print_min = 6, tibble.print_max = 6)
 ```
