@@ -1,5 +1,5 @@
 testthat::context('Testing data')
-if (basename(getwd()) == 'testthat') setwd('../..')  # workspace is reset per file
+setwd(here::here(''))  # workspace is reset per file
 
 testthat::test_that('dataset', {
     testthat::expect_true(tibble::is_tibble(dataset));
