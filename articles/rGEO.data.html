@@ -107,7 +107,17 @@
 6 GDS6010   DataS… Homo sa… ftp://… Platfor… "\tExpres… Influ… Analysis of…
 # … with 2.32e+04 more rows</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">rGEO.data<span class="op">::</span>platform</a></code></pre></div>
-<pre><code># A tibble: 0 x 0</code></pre>
+<pre><code># A tibble: 5,005 x 9
+  Accession Title Technology Taxonomy `Data Rows` `Samples Count`
+  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;          
+1 GPL26511  Infi… oligonucl… Homo sa… 244770      0              
+2 GPL26393  TaqM… RT-PCR     Homo sa… 28          687            
+3 GPL26355  Agil… in situ o… Homo sa… 34197       0              
+4 GPL26381  NNII… in situ o… Homo sa… 1856        41             
+5 GPL24052  [HG-… in situ o… Homo sa… 24898       17             
+6 GPL24804  Biom… RT-PCR     Homo sa… 50          331            
+# … with 4,999 more rows, and 3 more variables: `Series Count` &lt;chr&gt;,
+#   Contact &lt;chr&gt;, `Release Date` &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">rGEO.data<span class="op">::</span>gpl_metas[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt; $GPL21790</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; $GPL21790$info</span></a>
