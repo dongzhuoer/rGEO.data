@@ -44,7 +44,7 @@ dataset <- rGEO.data::read_summary('inst/extdata/gds_result.txt') %T>% print
 ```
 
 ```{r use-dataset}
-devtools::use_data(dataset, overwrite = T)
+usethis::use_data(dataset, overwrite = T)
 ```
 
 ## platform
@@ -65,10 +65,10 @@ parallel::mcmapply(download.file, geo_tsv('platforms', 1:2), paste0('data-raw/ge
 
 ```{r platform}
 platform <- dir('data-raw/geo-tsv', 'platform', full.names = T) %>% 
-	lapply(libzhuoer::read_char_tsv) %>% dplyr::bind_rows() %>% 
+	lapply(readr::read_tsv, T, libzhuoer::cols_char()) %>% dplyr::bind_rows() %>% 
 	dplyr::filter(Taxonomy == 'Homo sapiens') %T>% print
 
-devtools::use_data(platform, overwrite = T)
+usethis::use_data(platform, overwrite = T)
 ```
 
 ## gpl_metas
@@ -110,7 +110,7 @@ if (length(to_process) > 0) {
     gpl_metas <- cache
 }
 
-devtools::use_data(gpl_metas, overwrite = T)
+usethis::use_data(gpl_metas, overwrite = T)
 ```
 
 
