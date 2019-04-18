@@ -20,6 +20,7 @@ Imports:
     rvest,
     tibble
 Suggests:
+    prettydoc,
     libzhuoer
 Remotes:
     dongzhuoer/libzhuoer
