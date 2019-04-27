@@ -8,6 +8,3 @@ authors:
 template:
     params:
         bootswatch: cerulean
-        docsearch:
-            api_key: 7dce461917ca2b35046ab86f8d3e3db1
-            index_name: rgeo_data
