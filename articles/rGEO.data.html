@@ -74,7 +74,7 @@
       <h1>Introduction to rGEO.data</h1>
                         <h4 class="author">Zhuoer Dong</h4>
             
-            <h4 class="date">2019-06-13</h4>
+            <h4 class="date">2019-06-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/dongzhuoer/rGEO.data/blob/master/vignettes/rGEO.data.Rmd"><code>vignettes/rGEO.data.Rmd</code></a></small>
       <div class="hidden name"><code>rGEO.data.Rmd</code></div>
@@ -87,7 +87,7 @@
 <div id="data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">rGEO.data<span class="op">::</span>dataset</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>rGEO.data<span class="op">::</span>dataset</span></code></pre></div>
 <pre><code># A tibble: 23,210 x 8
   accession type   species  ftp     platform data_type  title  description 
   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;       
@@ -98,7 +98,7 @@
 5 GDS6063   DataS… Homo sa… ftp://… Platfor… "\tExpres… Influ… Analysis of…
 6 GDS6010   DataS… Homo sa… ftp://… Platfor… "\tExpres… Influ… Analysis of…
 # … with 2.32e+04 more rows</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">rGEO.data<span class="op">::</span>platform</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>rGEO.data<span class="op">::</span>platform</span></code></pre></div>
 <pre><code># A tibble: 5,005 x 9
   Accession Title Technology Taxonomy `Data Rows` `Samples Count`
   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;          
@@ -110,53 +110,53 @@
 6 GPL24804  Biom… RT-PCR     Homo sa… 50          331            
 # … with 4,999 more rows, and 3 more variables: `Series Count` &lt;chr&gt;,
 #   Contact &lt;chr&gt;, `Release Date` &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">rGEO.data<span class="op">::</span>gpl_metas[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt; $GPL21790</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; $GPL21790$info</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt; # A tibble: 2 x 2</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt;   name  description</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 1 ID    ""         </span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 2 ORF   ""         </span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="co">#&gt; $GPL21790$sample</span></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="co">#&gt; # A tibble: 20 x 2</span></a>
-<a class="sourceLine" id="cb5-12" title="12"><span class="co">#&gt;   ID      ORF    </span></a>
-<a class="sourceLine" id="cb5-13" title="13"><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;  </span></a>
-<a class="sourceLine" id="cb5-14" title="14"><span class="co">#&gt; 1 ACTA2   ACTA2  </span></a>
-<a class="sourceLine" id="cb5-15" title="15"><span class="co">#&gt; 2 ACTB    ACTB   </span></a>
-<a class="sourceLine" id="cb5-16" title="16"><span class="co">#&gt; 3 AFP     AFP    </span></a>
-<a class="sourceLine" id="cb5-17" title="17"><span class="co">#&gt; 4 B3GALT5 B3GALT5</span></a>
-<a class="sourceLine" id="cb5-18" title="18"><span class="co">#&gt; 5 BMP2    BMP2   </span></a>
-<a class="sourceLine" id="cb5-19" title="19"><span class="co">#&gt; 6 BMP4    BMP4   </span></a>
-<a class="sourceLine" id="cb5-20" title="20"><span class="co">#&gt; # … with 14 more rows</span></a>
-<a class="sourceLine" id="cb5-21" title="21"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-22" title="22"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-23" title="23"><span class="co">#&gt; $GPL24205</span></a>
-<a class="sourceLine" id="cb5-24" title="24"><span class="co">#&gt; $GPL24205$info</span></a>
-<a class="sourceLine" id="cb5-25" title="25"><span class="co">#&gt; # A tibble: 10 x 2</span></a>
-<a class="sourceLine" id="cb5-26" title="26"><span class="co">#&gt;   name           description                         </span></a>
-<a class="sourceLine" id="cb5-27" title="27"><span class="co">#&gt;   &lt;chr&gt;          &lt;chr&gt;                               </span></a>
-<a class="sourceLine" id="cb5-28" title="28"><span class="co">#&gt; 1 ID             Probe Name                          </span></a>
-<a class="sourceLine" id="cb5-29" title="29"><span class="co">#&gt; 2 GB_ACC         GenBank or RefSeq accession number  </span></a>
-<a class="sourceLine" id="cb5-30" title="30"><span class="co">#&gt; 3 GenbankID      GenBank or RefSeq accession number  </span></a>
-<a class="sourceLine" id="cb5-31" title="31"><span class="co">#&gt; 4 GB_RANGE       RefSeq accession.version[start..end]</span></a>
-<a class="sourceLine" id="cb5-32" title="32"><span class="co">#&gt; 5 Symbol         Symbol                              </span></a>
-<a class="sourceLine" id="cb5-33" title="33"><span class="co">#&gt; 6 ENTREZ_GENE_ID Entrez Gene ID                      </span></a>
-<a class="sourceLine" id="cb5-34" title="34"><span class="co">#&gt; # … with 4 more rows</span></a>
-<a class="sourceLine" id="cb5-35" title="35"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-36" title="36"><span class="co">#&gt; $GPL24205$sample</span></a>
-<a class="sourceLine" id="cb5-37" title="37"><span class="co">#&gt; # A tibble: 20 x 10</span></a>
-<a class="sourceLine" id="cb5-38" title="38"><span class="co">#&gt;   ID    GB_ACC GenbankID GB_RANGE Symbol ENTREZ_GENE_ID Description</span></a>
-<a class="sourceLine" id="cb5-39" title="39"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb5-40" title="40"><span class="co">#&gt; 1 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-41" title="41"><span class="co">#&gt; 2 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-42" title="42"><span class="co">#&gt; 3 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-43" title="43"><span class="co">#&gt; 4 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-44" title="44"><span class="co">#&gt; 5 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-45" title="45"><span class="co">#&gt; 6 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></a>
-<a class="sourceLine" id="cb5-46" title="46"><span class="co">#&gt; # … with 14 more rows, and 3 more variables: ControlType &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb5-47" title="47"><span class="co">#&gt; #   SEQUENCE &lt;chr&gt;, SPOT_ID &lt;chr&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>rGEO.data<span class="op">::</span>gpl_metas[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; $GPL21790</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; $GPL21790$info</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; # A tibble: 2 x 2</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt;   name  description</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      </span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 1 ID    ""         </span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; 2 ORF   ""         </span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; </span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; $GPL21790$sample</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; # A tibble: 20 x 2</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt;   ID      ORF    </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;  </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt; 1 ACTA2   ACTA2  </span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt; 2 ACTB    ACTB   </span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt; 3 AFP     AFP    </span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt; 4 B3GALT5 B3GALT5</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="co">#&gt; 5 BMP2    BMP2   </span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">#&gt; 6 BMP4    BMP4   </span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co">#&gt; # … with 14 more rows</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co">#&gt; </span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co">#&gt; </span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#&gt; $GPL24205</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#&gt; $GPL24205$info</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#&gt; # A tibble: 10 x 2</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">#&gt;   name           description                         </span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">#&gt;   &lt;chr&gt;          &lt;chr&gt;                               </span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">#&gt; 1 ID             Probe Name                          </span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">#&gt; 2 GB_ACC         GenBank or RefSeq accession number  </span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co">#&gt; 3 GenbankID      GenBank or RefSeq accession number  </span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">#&gt; 4 GB_RANGE       RefSeq accession.version[start..end]</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co">#&gt; 5 Symbol         Symbol                              </span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">#&gt; 6 ENTREZ_GENE_ID Entrez Gene ID                      </span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">#&gt; # … with 4 more rows</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co">#&gt; </span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co">#&gt; $GPL24205$sample</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">#&gt; # A tibble: 20 x 10</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt;   ID    GB_ACC GenbankID GB_RANGE Symbol ENTREZ_GENE_ID Description</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;      </span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; 1 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; 2 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; 3 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt; 4 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt; 5 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; 6 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; # … with 14 more rows, and 3 more variables: ControlType &lt;chr&gt;,</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt; #   SEQUENCE &lt;chr&gt;, SPOT_ID &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div id="function" class="section level1">
 <h1 class="hasAnchor">
