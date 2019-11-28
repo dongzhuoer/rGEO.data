@@ -76,7 +76,7 @@
       <h1>Introduction to rGEO.data</h1>
                         <h4 class="author">Zhuoer Dong</h4>
             
-            <h4 class="date">2019-11-22</h4>
+            <h4 class="date">2019-11-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/dongzhuoer/rGEO.data/blob/master/vignettes/rGEO.data.Rmd"><code>vignettes/rGEO.data.Rmd</code></a></small>
       <div class="hidden name"><code>rGEO.data.Rmd</code></div>
@@ -91,27 +91,27 @@
 <a href="#data" class="anchor"></a>Data</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>rGEO.data<span class="op">::</span>dataset</span></code></pre></div>
 <pre><code># A tibble: 23,210 x 8
-  accession type   species  ftp     platform data_type  title  description 
-  &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;       
-1 GDS6177   DataS… Homo sa… ftp://… Platfor… "\tExpres… Acute… Analysis of…
-2 GDS6100   DataS… Homo sa… ftp://… Platfor… "\tExpres… Micro… Analysis of…
-3 GDS6083   DataS… Homo sa… ftp://… Platfor… "\tExpres… Chron… Analysis of…
-4 GDS6082   DataS… Homo sa… ftp://… Platfor… "\tExpres… Senda… Analysis of…
-5 GDS6063   DataS… Homo sa… ftp://… Platfor… "\tExpres… Influ… Analysis of…
-6 GDS6010   DataS… Homo sa… ftp://… Platfor… "\tExpres… Influ… Analysis of…
+  accession type   species  ftp      platform  data_type   title   description  
+  &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;        
+1 GDS6177   DataS… Homo sa… ftp://f… Platform… "\tExpress… Acute … Analysis of …
+2 GDS6100   DataS… Homo sa… ftp://f… Platform… "\tExpress… MicroR… Analysis of …
+3 GDS6083   DataS… Homo sa… ftp://f… Platform… "\tExpress… Chroni… Analysis of …
+4 GDS6082   DataS… Homo sa… ftp://f… Platform… "\tExpress… Sendai… Analysis of …
+5 GDS6063   DataS… Homo sa… ftp://f… Platform… "\tExpress… Influe… Analysis of …
+6 GDS6010   DataS… Homo sa… ftp://f… Platform… "\tExpress… Influe… Analysis of …
 # … with 2.32e+04 more rows</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>rGEO.data<span class="op">::</span>platform</span></code></pre></div>
 <pre><code># A tibble: 5,005 x 9
-  Accession Title Technology Taxonomy `Data Rows` `Samples Count`
-  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;          
-1 GPL26511  Infi… oligonucl… Homo sa… 244770      0              
-2 GPL26393  TaqM… RT-PCR     Homo sa… 28          687            
-3 GPL26355  Agil… in situ o… Homo sa… 34197       0              
-4 GPL26381  NNII… in situ o… Homo sa… 1856        41             
-5 GPL24052  [HG-… in situ o… Homo sa… 24898       17             
-6 GPL24804  Biom… RT-PCR     Homo sa… 50          331            
-# … with 4,999 more rows, and 3 more variables: `Series Count` &lt;chr&gt;,
-#   Contact &lt;chr&gt;, `Release Date` &lt;chr&gt;</code></pre>
+  Accession Title Technology Taxonomy `Data Rows` `Samples Count` `Series Count`
+  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;           &lt;chr&gt;         
+1 GPL26511  Infi… oligonucl… Homo sa… 244770      0               0             
+2 GPL26393  TaqM… RT-PCR     Homo sa… 28          687             1             
+3 GPL26355  Agil… in situ o… Homo sa… 34197       0               0             
+4 GPL26381  NNII… in situ o… Homo sa… 1856        41              2             
+5 GPL24052  [HG-… in situ o… Homo sa… 24898       17              1             
+6 GPL24804  Biom… RT-PCR     Homo sa… 50          331             1             
+# … with 4,999 more rows, and 2 more variables: Contact &lt;chr&gt;, `Release
+#   Date` &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>rGEO.data<span class="op">::</span>gpl_metas[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; $GPL21790</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; $GPL21790$info</span></span>
@@ -149,16 +149,15 @@
 <span id="cb5-35"><a href="#cb5-35"></a><span class="co">#&gt; </span></span>
 <span id="cb5-36"><a href="#cb5-36"></a><span class="co">#&gt; $GPL24205$sample</span></span>
 <span id="cb5-37"><a href="#cb5-37"></a><span class="co">#&gt; # A tibble: 20 x 10</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt;   ID    GB_ACC GenbankID GB_RANGE Symbol ENTREZ_GENE_ID Description</span></span>
-<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;      </span></span>
-<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; 1 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; 2 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; 3 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt; 4 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt; 5 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; 6 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;       </span></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; # … with 14 more rows, and 3 more variables: ControlType &lt;chr&gt;,</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt; #   SEQUENCE &lt;chr&gt;, SPOT_ID &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt;   ID    GB_ACC GenbankID GB_RANGE Symbol ENTREZ_GENE_ID Description ControlType</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;      </span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; 1 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; 2 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; 3 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt; 4 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt; 5 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; 6 EPI_… NM_00… ""        ""       &lt;NA&gt;   ""             &lt;NA&gt;        0          </span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; # … with 14 more rows, and 2 more variables: SEQUENCE &lt;chr&gt;, SPOT_ID &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div id="function" class="section level1">
 <h1 class="hasAnchor">
