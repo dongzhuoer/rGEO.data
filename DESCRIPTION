@@ -4,8 +4,8 @@ Title: big meta data from GEO (Gene Expression Omnibus)
 Version: 0.2.0
 Authors@R: person("Zhuoer", "Dong", email = "dongzhuoer@mail.nankai.edu.cn", 
     role = c("aut", "cre"))
-Description: refer to https://dongzhuoer.github.io/rGEO.data
-URL: https://dongzhuoer.github.io/rGEO.data, https://github.com/dongzhuoer/rGEO.data
+Description: refer to https://github.com/dongzhuoer/rGEO.data
+URL: https://pkgdown.dongzhuoer.com/dongzhuoer/rGEO.data, https://github.com/dongzhuoer/rGEO.data
 BugReports: https://github.com/dongzhuoer/rGEO.data/issues
 License: file LICENSE
 Encoding: UTF-8
